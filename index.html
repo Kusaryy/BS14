@@ -23,15 +23,20 @@
         .hero h2 { color: white; border-bottom: 2px solid white; margin-top: 0; }
         .hero p { font-size: 1.2em; margin-top: 10px; font-weight: 300; }
         .content-block { margin-bottom: 15px; }
-        .content-block h3 { color: #667eea; font-size: 1.3em; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .content-block h3 { color: #667eea; font-size: 1.3em; margin-bottom: 5px; display: flex; align-items: center; gap: 10px; }
         .icon { width: 30px; height: 30px; background: #667eea; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0; }
         .content-block p { color: #333; line-height: 1.6; font-size: 1em; margin-bottom: 10px; }
         ul { margin-left: 20px; margin-top: 10px; color: #333; line-height: 1.8; }
         li { margin-bottom: 5px; }
-        .three-pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 0; grid-column: 1 / -1; }
+        
+        /* BSI Schutzziele direkt unter Überschrift - keine Lücke */
+        .bsi-section { grid-column: 1 / -1; display: grid; gap: 0; }
+        .bsi-title { margin-bottom: 10px; }
+        .three-pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-top: 0; }
         .pillar { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2); }
         .pillar h4 { font-size: 1.3em; margin-bottom: 10px; font-weight: 700; }
-        .pillar p { font-size: 0.95em; line-height: 1.5; }
+        .pillar p { font-size: 0.95em; line-height: 1.5; margin: 0; }
+        
         .highlights { background: #fff3cd; padding: 20px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #ffc107; }
         .highlights h4 { color: #856404; margin-bottom: 10px; }
         .highlights p { color: #856404; font-size: 0.95em; line-height: 1.6; }
@@ -46,10 +51,11 @@
             .flyer-content { grid-template-columns: 1fr; padding: 30px 20px; gap: 20px; } 
             h1 { font-size: 1.8em; } 
             h2 { font-size: 1.3em; } 
-            .three-pillars { grid-template-columns: 1fr; } 
+            .three-pillars { grid-template-columns: 1fr; gap: 10px; } 
             .hero h1 { font-size: 1.6em; } 
         }
-        footer { text-align: center; color: white; margin-top: 30px; font-size: 0.9em; }
+        footer { text-align: center; color: white; margin-top: 30px; font-size: 0
+
     </style>
 </head>
 <body>
