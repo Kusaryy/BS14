@@ -3,153 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datensicherheit Flyer - MooveTeq</title>
+    <title>MooveTeq - Datensicherheit und IT-Schutzziele</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); color: #333; }
-        .container { max-width: 800px; margin: 0 auto; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow: hidden; position: relative; }
-        .header { background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%); color: white; text-align: center; padding: 40px 20px; position: relative; }
-        .header h1 { font-size: 2.5em; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        .header p { font-size: 1.2em; margin: 10px 0 0; opacity: 0.9; }
-        .escooter-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; background-image: url('image/svg+xml;base64,...'); /* Platzhalter für E-Scooter SVG */ z-index: 1; }
-        .content { display: flex; padding: 40px; gap: 40px; position: relative; z-index: 2; }
-        .section { flex: 1; }
-        .section h2 { color: #1976d2; font-size: 1.8em; margin-bottom: 20px; border-bottom: 3px solid #42a5f5; padding-bottom: 10px; }
-        ul { list-style: none; padding: 0; }
-        li { margin: 15px 0; padding: 15px; background: #f8f9fa; border-left: 5px solid #42a5f5; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .cia-item { display: flex; align-items: center; margin: 20px 0; padding: 20px; background: linear-gradient(90deg, #e8f5e8, #f0f8f0); border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .cia-icon { font-size: 2em; margin-right: 15px; }
-        .footer { background: #1976d2; color: white; text-align: center; padding: 30px; }
-        .example { background: linear-gradient(135deg, #ff9800, #ffb74d); color: white; padding: 25px; border-radius: 15px; margin: 20px 0; text-align: center; font-weight: bold; box-shadow: 0 5px 15px rgba(255,152,0,0.3); }
-        #qr-code { margin: 20px auto; display: block; }
-        .lang-toggle { position: absolute; top: 20px; right: 20px; background: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 10; }
-        .lang-toggle:hover { background: #42a5f5; color: white; }
-        .hidden { display: none; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .language-toggle { text-align: center; margin-bottom: 20px; }
+        .lang-btn { background: white; border: none; padding: 10px 20px; margin: 5px; border-radius: 25px; cursor: pointer; font-weight: bold; color: #667eea; transition: all 0.3s ease; }
+        .lang-btn.active { background: #667eea; color: white; transform: scale(1.05); }
+        .lang-btn:hover { transform: scale(1.05); }
+        .flyer-container { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+        .flyer-content { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 40px 40px 50px; }
+        .section { display: none; }
+        .section.active { display: block; }
+        h1 { color: #667eea; font-size: 2.5em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        h2 { color: #764ba2; font-size: 1.8em; margin-bottom: 15px; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 10px; text-align: center; grid-column: 1 / -1; margin-bottom: 20px; }
+        .hero h1 { color: white; font-size: 2.2em; margin-bottom: 10px; }
+        .hero h2 { color: white; border-bottom: 2px solid white; margin-top: 0; }
+        .hero p { font-size: 1.2em; margin-top: 10px; font-weight: 300; }
+        .content-block { margin-bottom: 15px; }
+        .content-block h3 { color: #667eea; font-size: 1.3em; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .icon { width: 30px; height: 30px; background: #667eea; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0; }
+        .content-block p { color: #333; line-height: 1.6; font-size: 1em; margin-bottom: 10px; }
+        ul { margin-left: 20px; margin-top: 10px; color: #333; line-height: 1.8; }
+        li { margin-bottom: 5px; }
+        .three-pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 0; grid-column: 1 / -1; }
+        .pillar { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2); }
+        .pillar h4 { font-size: 1.3em; margin-bottom: 10px; font-weight: 700; }
+        .pillar p { font-size: 0.95em; line-height: 1.5; }
+        .highlights { background: #fff3cd; padding: 20px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #ffc107; }
+        .highlights h4 { color: #856404; margin-bottom: 10px; }
+        .highlights p { color: #856404; font-size: 0.95em; line-height: 1.6; }
+        .tips { background: #e8f4f8; padding: 20px; border-radius: 8px; margin: 10px 0; border-left: 4px solid #00bcd4; grid-column: 1 / -1; }
+        .tips h4 { color: #00695c; margin-bottom: 10px; }
+        .tips ol { color: #00695c; margin-left: 20px; font-size: 0.95em; line-height: 1.6; }
+        .tips li { margin-bottom: 8px; }
+        .cta-section { background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); color: white; padding: 30px; border-radius: 10px; text-align: center; grid-column: 1 / -1; margin-top: 10px; }
+        .cta-section h3 { color: white; font-size: 1.5em; margin-bottom: 15px; }
+        .cta-section p { color: rgba(255, 255, 255, 0.95); font-size: 1.05em; margin-bottom: 15px; }
+        @media (max-width: 768px) { 
+            .flyer-content { grid-template-columns: 1fr; padding: 30px 20px; gap: 20px; } 
+            h1 { font-size: 1.8em; } 
+            h2 { font-size: 1.3em; } 
+            .three-pillars { grid-template-columns: 1fr; } 
+            .hero h1 { font-size: 1.6em; } 
+        }
+        footer { text-align: center; color: white; margin-top: 30px; font-size: 0.9em; }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.3/qrcode.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <button class="lang-toggle" onclick="toggleLang()">🇬🇧 English</button>
-        
-        <!-- Deutsch Version -->
-        <div id="de" class="lang-content">
-            <div class="header">
-                <div class="escooter-bg"></div>
-                <h1>Datensicherheit schützt unser Business!</h1>
-                <p>Nach dem Ausfall: Nie wieder!</p>
-            </div>
-            <div class="content">
-                <div class="section">
-                    <h2>Warum wichtig?</h2>
-                    <ul>
-                        <li>🚫 Verhindert Ausfälle wie Netzwerk-Stillstand</li>
-                        <li>🔒 Schützt Kundendaten (DSGVO)</li>
-                        <li>💼 Erhält Kundenvertrauen & Umsatz</li>
-                        <li>⚖️ Minimiert Bußgelder & Cyber-Risiken</li>
-                    </ul>
+        <div class="language-toggle">
+            <button class="lang-btn active" onclick="switchLanguage('de')">🇩🇪 Deutsch</button>
+            <button class="lang-btn" onclick="switchLanguage('en')">🇬🇧 English</button>
+        </div>
+
+        <div class="flyer-container">
+            <div id="de-section" class="section active">
+                <div class="flyer-content">
+                    <div class="hero">
+                        <h1>🔒 Datensicherheit</h1>
+                        <h2>Schutzziele und Risiken bei MooveTeq</h2>
+                        <p>Datenschutz im Arbeitsalltag ist Aufgabe aller</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3><span class="icon">?</span> Warum brauchen wir Datensicherheit?</h3>
+                        <p>Daten sind für Unternehmensprozesse essentiell. Ohne adäquate Maßnahmen entstehen folgende Probleme:</p>
+                        <ul>
+                            <li>Finanzielle Verluste und Ausfallzeiten</li>
+                            <li>Beeinträchtigung des Unternehmensrufs</li>
+                            <li>Compliance-Verstöße und Regulierungsanforderungen</li>
+                            <li>Geschäftsbeziehungen unter Druck</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3><span class="icon">🎯</span> Die drei Schutzziele nach BSI</h3>
+                    </div>
+                    <div class="three-pillars">
+                        <div class="pillar">
+                            <h4>🔐 Vertraulichkeit</h4>
+                            <p>Nur berechtigte Personen sehen sensible Daten</p>
+                        </div>
+                        <div class="pillar">
+                            <h4>✅ Integrität</h4>
+                            <p>Informationen bleiben unverfälscht und vollständig</p>
+                        </div>
+                        <div class="pillar">
+                            <h4>⚡ Verfügbarkeit</h4>
+                            <p>Systeme sind bei Bedarf nutzbar</p>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h3><span class="icon">✨</span> Der menschliche Aspekt</h3>
+                        <p>Ein großer Anteil von Vorfällen entsteht durch Fehler in der Praxis. Typische Risiken sind:</p>
+                        <ul>
+                            <li>Zu simple Passwörter</li>
+                            <li>Mails von unbekannten Absendern</li>
+                            <li>Unbewusster Datenaustausch</li>
+                            <li>Fremde USB-Geräte</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlights">
+                        <h4>💡 Achtsamkeit im Umgang mit Daten</h4>
+                        <p>Jeder Mitarbeiter trägt Verantwortung. Bewusstes Handeln reduziert Risiken deutlich.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3><span class="icon">✓</span> Praktische Hinweise für den Arbeitsalltag</h3>
+                    </div>
+
+                    <div class="tips">
+                        <h4>Worauf sollte ich achten:</h4>
+                        <ol>
+                            <li>Passwörter sollten lang und unterschiedlich sein</li>
+                            <li>Zwei-Faktor-Authentifizierung aktivieren, wenn verfügbar</li>
+                            <li>Unbekannte Mail-Links prüfen, bevor darauf geklickt wird</li>
+                            <li>Software und Systeme aktualisieren, sobald Updates verfügbar sind</li>
+                            <li>Unsicherheiten mit Kollegen oder dem IT-Team klären</li>
+                            <li>Dateien nur über freigegebene Kanäle mit bekannten Kontakten teilen</li>
+                        </ol>
+                    </div>
+
+                    <div class="cta-section">
+                        <h3>🤝 Datenschutz ist Teamaufgabe</h3>
+                        <p>Fragen zur IT-Sicherheit können beim IT-Support oder der Geschäftsleitung geklärt werden.</p>
+                        <p style="margin-top: 20px; font-style: italic;">Aufmerksames Handeln reduziert unser Risiko merklich.</p>
+                    </div>
                 </div>
-                <div class="section">
-                    <h2>IT-Schutzziele (CIA-Triade BSI)</h2>
-                    <div class="cia-item">
-                        <span class="cia-icon">🔒</span>
-                        <div><strong>Vertraulichkeit</strong><br>Nur autorisierte Zugriffe (z.B. App-Logins)</div>
+            </div>
+
+            <div id="en-section" class="section">
+                <div class="flyer-content">
+                    <div class="hero">
+                        <h1>🔒 Data Security</h1>
+                        <h2>Protection Goals and Risks at MooveTeq</h2>
+                        <p>Data protection in daily work involves everyone</p>
                     </div>
-                    <div class="cia-item">
-                        <span class="cia-icon">🛡️</span>
-                        <div><strong>Integrität</strong><br>Daten unverändert (keine Manipulation)</div>
+
+                    <div class="content-block">
+                        <h3><span class="icon">?</span> Why is data protection important?</h3>
+                        <p>Data is vital to business operations. Without proper safeguards, several issues arise:</p>
+                        <ul>
+                            <li>Financial losses and operational downtime</li>
+                            <li>Damage to company reputation</li>
+                            <li>Regulatory non-compliance and penalties</li>
+                            <li>Business relationships at risk</li>
+                        </ul>
                     </div>
-                    <div class="cia-item">
-                        <span class="cia-icon">⏰</span>
-                        <div><strong>Verfügbarkeit</strong><br>Systeme immer online (Scooter-Ausleihe)</div>
+
+                    <div class="content-block">
+                        <h3><span class="icon">🎯</span> Three Protection Goals per BSI</h3>
+                    </div>
+                    <div class="three-pillars">
+                        <div class="pillar">
+                            <h4>🔐 Confidentiality</h4>
+                            <p>Only authorized personnel access sensitive data</p>
+                        </div>
+                        <div class="pillar">
+                            <h4>✅ Integrity</h4>
+                            <p>Information remains unaltered and complete</p>
+                        </div>
+                        <div class="pillar">
+                            <h4>⚡ Availability</h4>
+                            <p>Systems function when needed</p>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h3><span class="icon">✨</span> The Human Element</h3>
+                        <p>Many incidents occur through everyday mistakes. Common risks include:</p>
+                        <ul>
+                            <li>Weak passwords in use</li>
+                            <li>Email from unknown senders</li>
+                            <li>Unintended data sharing</li>
+                            <li>Unknown USB devices</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlights">
+                        <h4>💡 Awareness in handling data</h4>
+                        <p>Each employee bears responsibility. Careful behaviour reduces risks significantly.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3><span class="icon">✓</span> Practical guidance for daily work</h3>
+                    </div>
+
+                    <div class="tips">
+                        <h4>Things to consider:</h4>
+                        <ol>
+                            <li>Use long and unique passwords for different accounts</li>
+                            <li>Enable two-factor authentication when available</li>
+                            <li>Check unknown email links before clicking on them</li>
+                            <li>Apply software updates and patches promptly</li>
+                            <li>Ask colleagues or IT staff if something seems unclear</li>
+                            <li>Share files only through approved channels with known contacts</li>
+                        </ol>
+                    </div>
+
+                    <div class="cta-section">
+                        <h3>🤝 Data protection is shared responsibility</h3>
+                        <p>Questions about data security can be addressed with IT support or management.</p>
+                        <p style="margin-top: 20px; font-style: italic;">Careful behaviour significantly reduces our risk exposure.</p>
                     </div>
                 </div>
-            </div>
-            <div class="example">📱 MooveTeq-Ausfall: Kunden verloren – Datensicherheit verhindert das!</div>
-            <div class="footer">
-                <p>Frage deine IT-Abteilung! #SecureMooveTeq</p>
-                <canvas id="qr-code"></canvas>
-                <p style="font-size: 0.9em; margin-top: 10px;">BSI IT-Grundschutz</p>
             </div>
         </div>
 
-        <!-- English Version -->
-        <div id="en" class="lang-content hidden">
-            <div class="header">
-                <div class="escooter-bg"></div>
-                <h1>Data Security Protects Our Business!</h1>
-                <p>After the outage: Never again!</p>
-            </div>
-            <div class="content">
-                <div class="section">
-                    <h2>Why Important?</h2>
-                    <ul>
-                        <li>🚫 Prevents outages like network downtime</li>
-                        <li>🔒 Protects customer data (GDPR)</li>
-                        <li>💼 Maintains customer trust & revenue</li>
-                        <li>⚖️ Minimizes fines & cyber risks</li>
-                    </ul>
-                </div>
-                <div class="section">
-                    <h2>IT Security Goals (CIA Triad BSI)</h2>
-                    <div class="cia-item">
-                        <span class="cia-icon">🔒</span>
-                        <div><strong>Confidentiality</strong><br>Authorized access only (e.g. app logins)</div>
-                    </div>
-                    <div class="cia-item">
-                        <span class="cia-icon">🛡️</span>
-                        <div><strong>Integrity</strong><br>Data unchanged (no manipulation)</div>
-                    </div>
-                    <div class="cia-item">
-                        <span class="cia-icon">⏰</span>
-                        <div><strong>Availability</strong><br>Systems always online (Scooter rental)</div>
-                    </div>
-                </div>
-            </div>
-            <div class="example">📱 MooveTeq outage: Customers lost – Data security prevents this!</div>
-            <div class="footer">
-                <p>Ask your IT team! #SecureMooveTeq</p>
-                <canvas id="qr-code-en"></canvas>
-                <p style="font-size: 0.9em; margin-top: 10px;">BSI IT Baseline Protection</p>
-            </div>
-        </div>
+        <footer>
+            <p>MooveTeq - Security Awareness Initiative | Following BSI Guidelines</p>
+            <p style="margin-top: 10px;">Edition 3.0 | 2026</p>
+        </footer>
     </div>
 
     <script>
-        let currentLang = 'de';
-        
-        function toggleLang() {
-            const de = document.getElementById('de');
-            const en = document.getElementById('en');
-            const button = document.querySelector('.lang-toggle');
+        function switchLanguage(lang) {
+            const deSection = document.getElementById('de-section');
+            const enSection = document.getElementById('en-section');
+            const buttons = document.querySelectorAll('.lang-btn');
             
-            if (currentLang === 'de') {
-                de.classList.add('hidden');
-                en.classList.remove('hidden');
-                button.textContent = '🇩🇪 Deutsch';
-                currentLang = 'en';
+            deSection.classList.remove('active');
+            enSection.classList.remove('active');
+            
+            if(lang === 'de') {
+                deSection.classList.add('active');
             } else {
-                de.classList.remove('hidden');
-                en.classList.add('hidden');
-                button.textContent = '🇬🇧 English';
-                currentLang = 'de';
+                enSection.classList.add('active');
             }
-            generateQR();
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
         }
-        
-        function generateQR() {
-            const canvasId = currentLang === 'de' ? 'qr-code' : 'qr-code-en';
-            const canvas = document.getElementById(canvasId);
-            QRCode.toCanvas(canvas, 'https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/unternehmen-und-organisationen_node.html', {
-                width: 120,
-                margin: 2,
-                color: { dark: '#1976d2', light: '#ffffff' }
-            }, function(error) {
-                if (error) console.error(error);
-            });
-        }
-        
-        // Initial QR generieren
-        window.onload = generateQR;
     </script>
 </body>
 </html>
